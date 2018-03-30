@@ -4,9 +4,9 @@ var schema = mongoose.Schema;
 var schemaType = mongoose.Schema.Types;
 
 var node = new schema({
-    ID : Number,
-    longitude : schemaType.Double,
-    latitude : schemaType.Double,
+    nodeID : Number,
+    longitude : {type : schemaType.Double, default : 0.0},
+    latitude : {type : schemaType.Double, default : 0.0},
     adjacent : [],
     tag : String,
     status : Number
@@ -14,7 +14,7 @@ var node = new schema({
 
 node.plugin(autoIncrement.plugin, {
     model : 'node',
-    field : 'ID',
+    field : 'nodeID',
     startAt : 0,
     incrementBy : 1,
 });
