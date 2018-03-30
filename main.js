@@ -1,0 +1,1 @@
+console.log('Server for collecting Geo Data');
