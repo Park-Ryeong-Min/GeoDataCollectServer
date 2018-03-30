@@ -13,6 +13,7 @@ var node = new schema({
     status : Number
 });
 
+autoIncrement.initialize(mongoose.connection);
 node.plugin(autoIncrement.plugin, {
     model : 'node',
     field : 'nodeID',
