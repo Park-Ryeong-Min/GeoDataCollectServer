@@ -2,6 +2,8 @@ var node = require('../db/schems/node');
 
 module.exports = function (io, socket) {
     socket.on('getGPSNodeData', function (data) {
+        console.log('[FromCLIENT] event : getGPSNodeData, ' + data);
+
         var lng = data.longitude;
         var lat = data.latitude;
 
