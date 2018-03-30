@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+require('mongoose-double')(mongoose);
 var autoIncrement = require('mongoose-auto-increment');
 var schema = mongoose.Schema;
 var schemaType = mongoose.Schema.Types;
