@@ -5,5 +5,5 @@ module.exports = function (io, socket) {
             result : 10,
             message : 'ping-pong with server and client'
         });
-    })
+    });
 }
