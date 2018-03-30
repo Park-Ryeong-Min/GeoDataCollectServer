@@ -13,6 +13,7 @@ io.on('connection', function (socket) {
     console.log('[CLIENT_CONNECT] connected with ' + socket.id);
 
     require('./src/socket.event/ping')(io, socket);
+    require('./src/socket.event/getGPSNodeData')(io, socket);
 });
 
 server.listen(sysConfig.PORT, function () {
