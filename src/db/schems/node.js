@@ -10,7 +10,9 @@ var node = new schema({
     latitude : {type : schemaType.Double, default : 0.0},
     adjacent : [],
     tag : String,
-    status : Number
+    status : Number,
+    sectionNumber : Number,
+    sectionName : String
 });
 
 autoIncrement.initialize(mongoose.connection);

@@ -10,6 +10,7 @@
   "author": "capstone.teamPKC",
   "license": "ISC",
   "dependencies": {
+    "array-unique": "^0.3.2",
     "express": "^4.16.3",
     "http": "0.0.0",
     "mongoose": "^5.0.12",
