@@ -16,6 +16,8 @@ io.on('connection', function (socket) {
     require('./src/socket.event/getGPSNodeData')(io, socket);
     require('./src/socket.event/responseGPSNodeNumber')(io, socket);
     require('./src/socket.event/responseGPSNodeData')(io, socket);
+    require('./src/socket.event/removeSectionByName')(io, socket);
+    require('./src/socket.event/changeNodeStatus')(io, socket);
 });
 
 server.listen(sysConfig.PORT, function () {

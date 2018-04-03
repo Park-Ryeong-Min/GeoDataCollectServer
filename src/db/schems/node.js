@@ -10,7 +10,7 @@ var node = new schema({
     latitude : {type : schemaType.Double, default : 0.0},
     adjacent : [],
     tag : String,
-    status : Number,
+    status : {type : Number, default : 0},
     sectionNumber : Number,
     sectionName : String
 });
