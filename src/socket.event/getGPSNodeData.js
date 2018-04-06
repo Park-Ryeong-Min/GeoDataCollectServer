@@ -8,6 +8,7 @@ module.exports = function (io, socket) {
         var lat = data.latitude;
         var sectionNumber = data.sectionNumber;
         var sectionName = data.sectionName;
+        var status = data.status;
 
         function saveNewNode() {
             var newNode = new node();
@@ -15,6 +16,7 @@ module.exports = function (io, socket) {
             newNode.latitude = lat;
             newNode.sectionNumber = sectionNumber;
             newNode.sectionName = sectionName;
+            newNode.status = status;
 
             return newNode.save();
         }
