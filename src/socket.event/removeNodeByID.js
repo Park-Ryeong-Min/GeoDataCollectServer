@@ -15,8 +15,8 @@ module.exports = function (io, socket) {
         }
 
         function handleResult(result) {
-            console.log(result);
-            if(result.nRemoved == 1){
+            //console.log(result);
+            if(result.n == 1 && result.ok == 1){
                 io.to(socket.id).emit('removeNodeResult', {
                     result : 1
                 });
