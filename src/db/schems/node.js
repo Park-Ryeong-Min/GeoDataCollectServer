@@ -4,11 +4,18 @@ var autoIncrement = require('mongoose-auto-increment');
 var schema = mongoose.Schema;
 var schemaType = mongoose.Schema.Types;
 
+var adjacentNode = new schema({
+    nodeID : Number,
+    longitude : {type : schemaType.Double, default : 0.0},
+    latitude : {type : schemaType.Double, default : 0.0},
+    distance : {type : schemaType.Double, default : 0.0}
+});
+
 var node = new schema({
     nodeID : Number,
     longitude : {type : schemaType.Double, default : 0.0},
     latitude : {type : schemaType.Double, default : 0.0},
-    adjacent : [],
+    adjacent : [ adjacentNode ],
     tag : String,
     status : {type : Number, default : 0},
     sectionNumber : Number,
