@@ -1,5 +1,5 @@
 var node = require('../db/schems/node');
-var getDistance = require('geolib').getDistance;
+var geo = require('geolib');
 
 module.exports = function (io, socket) {
     socket.on('addAdjacentNode', function (data) {
@@ -41,7 +41,7 @@ module.exports = function (io, socket) {
                 latitude : curNodeLat,
                 longitude : curNodeLng
             }
-            distance = getDistance(addNode, curNode);
+            distance = geo.getDistanceSimple(addNode, curNode);
             console.log('[GET_DISTANCE] distance : ' + distance);
             return new Promise(function (resolve, reject) {
                 resolve();
