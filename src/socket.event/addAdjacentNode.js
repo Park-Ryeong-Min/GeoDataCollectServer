@@ -67,7 +67,7 @@ module.exports = function (io, socket) {
             })
         }
 
-        function updateNodeDocument() {
+        function updateCurNodeDocument() {
             var findQuery = {
                 nodeID : curNodeID
             }
@@ -84,10 +84,28 @@ module.exports = function (io, socket) {
             return node.update(findQuery, updateQuery).exec();
         }
 
+        function updateAddNodeDocument(result) {
+            var findQuery = {
+                nodeID : addNodeID
+            }
+            var updateQuery = {
+                $push : {
+                    adjacent : {
+                        nodeID : curNodeID,
+                        latitude : curNodeLat,
+                        longitude : curNodeLng,
+                        distance : distance
+                    }
+                }
+            }
+            return node.update(findQuery, updateQuery).exec();
+        }
+
         return findAddNode()
             .then(handleFindAddNodeResult)
             .then(handleFindCurNodeResult)
-            .then(updateNodeDocument)
+            .then(updateCurNodeDocument)
+            .then(updateAddNodeDocument)
             .catch(onError);
     });
 }
