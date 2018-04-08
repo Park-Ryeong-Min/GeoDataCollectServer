@@ -1,5 +1,5 @@
 var node = require('../db/schems/node');
-var getDistance = require('gps-distance');
+var getDistance = require('geolib').getDistance;
 
 module.exports = function (io, socket) {
     socket.on('addAdjacentNode', function (data) {
@@ -33,7 +33,19 @@ module.exports = function (io, socket) {
         function handleFindCurNodeResult(result) {
             curNodeLat = result.latitude;
             curNodeLng = result.longitude;
-            distance = getDistance(addNodeLat, addNodeLng, curNodeLat, curNodeLng);
+            var addNode = {
+                latitude : addNodeLat,
+                longitude : addNodeLng
+            };
+            var curNode = {
+                latitude : curNodeLat,
+                longitude : curNodeLng
+            }
+            distance = getDistance(addNode, curNode);
+            console.log('[GET_DISTANCE] distance : ' + distance);
+            return new Promise(function (resolve, reject) {
+                resolve();
+            })
         }
 
         function updateNodeDocument() {
