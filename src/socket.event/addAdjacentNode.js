@@ -72,7 +72,7 @@ module.exports = function (io, socket) {
                 nodeID : curNodeID
             }
             var updateQuery = {
-                $push : {
+                $addToSet : {
                     adjacent : {
                         nodeID : addNodeID,
                         latitude : addNodeLat,
@@ -89,7 +89,7 @@ module.exports = function (io, socket) {
                 nodeID : addNodeID
             }
             var updateQuery = {
-                $push : {
+                $addToSet : {
                     adjacent : {
                         nodeID : curNodeID,
                         latitude : curNodeLat,
